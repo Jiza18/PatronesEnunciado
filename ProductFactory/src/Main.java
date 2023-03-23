@@ -1,3 +1,7 @@
+enum Tipos {
+    BOOK,ELEC,PUBL;
+}
+
 abstract class Product {
     protected String title;
     protected double price;
@@ -6,8 +10,21 @@ abstract class Product {
         this.title = title;
         this.price = price;
     }
-
     public abstract void display();
+
+    static Product factory(Tipos tipo, String title, double price, String carastericas) {
+
+        switch (tipo) {
+            case BOOK:
+                return new Book(title, price, carastericas);
+            case ELEC:
+                return new Electronic(title,price,carastericas);
+            case PUBL:
+                return new Clothing(title,price,carastericas);
+        }
+
+        return null;
+    }
 }
 
 class Book extends Product {
@@ -55,13 +72,14 @@ class Clothing extends Product {
 
 public class Main {
     public static void main(String[] args) {
-        Product book = new Book("Harry Potter and the Philosopher's Stone", 9.99, "J.K. Rowling");
+
+        Product book = Product.factory(Tipos.BOOK, "Harry Potter and the Philosopher's Stone", 9.99, "J.K. Rowling");
         book.display();
 
-        Product electronic = new Electronic("iPhone 12 Pro", 999.99, "Apple");
+        Product electronic = Product.factory(Tipos.ELEC,"iPhone 12 Pro", 999.99, "Apple");
         electronic.display();
 
-        Product clothing = new Clothing("Maxi Dress", 38, "ASOS");
+        Product clothing = Product.factory(Tipos.PUBL,"Maxi Dress", 38, "ASOS");
         clothing.display();
     }
 }
