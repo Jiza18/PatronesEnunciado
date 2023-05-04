@@ -5,7 +5,7 @@ import java.util.List;
 
 class Pinger {
     interface Adapter {
-        int numIps();
+        default int numIps() { return 100; }
         String ObtenerIp(int i);
     }
 
@@ -25,20 +25,11 @@ class Pinger {
     }
 }
 
-
-
-
-
-
 public class Main {
     public static void main(String[] args) {
         Pinger pinger = new Pinger();
 
         pinger.ping(new Pinger.Adapter() {
-            @Override
-            public int numIps() {
-                return 5;
-            }
 
             @Override
             public String ObtenerIp(int i) {
