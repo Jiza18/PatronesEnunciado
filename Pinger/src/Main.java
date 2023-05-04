@@ -5,10 +5,15 @@ import java.util.List;
 
 class Pinger {
     interface Adapter {
-        String ObtenerIp();
+        int numIps();
+        String ObtenerIp(int i);
     }
-    void ping(List <String> ips) {
-        for (String ip : ips) {
+
+    void ping(Adapter adapter) {
+        for (int i = 0; i < adapter.numIps(); i++) {
+
+            String ip = adapter.ObtenerIp(i);
+
             try {
                 if (InetAddress.getByName(ip).isReachable(500)) {
                     System.out.println(ip + " is online");
@@ -20,14 +25,25 @@ class Pinger {
     }
 }
 
+
+
+
+
+
 public class Main {
     public static void main(String[] args) {
         Pinger pinger = new Pinger();
 
-        List<String> ips = new ArrayList<>();
-        for (int i = 1; i < 254; i++) {
-            ips.add("10.2.1." + i);
-        }
-        pinger.ping(ips);
+        pinger.ping(new Pinger.Adapter() {
+            @Override
+            public int numIps() {
+                return 5;
+            }
+
+            @Override
+            public String ObtenerIp(int i) {
+                return "10.2.1."+i;
+            }
+        });
     }
 }
