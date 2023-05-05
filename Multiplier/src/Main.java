@@ -1,3 +1,22 @@
+/*Multiplier
+Haz que el método multiplica() obtenga los dos números a multiplicar llamando a dos métodos de un Adaptador.
+
+class Multiplicador {
+    int multiplica(int num1, int num2){
+        return num1 * num2;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Multiplicador multiplicador = new Multiplicador();
+
+        int resultado = multiplicador.multiplica(1000, 2000);
+
+        System.out.println(resultado);
+    }
+}*/
+
 class Multiplicador {
     interface Adapter {
         int numero1();

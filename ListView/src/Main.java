@@ -1,3 +1,24 @@
+/*Haz que el método show() obtenga la cantidad y cada uno de los ítems mediante un Adaptador.
+
+import java.util.List;
+
+class ListView {
+    void show(List<String> items){
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println(items.get(i));
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> items = List.of("Java","Python","Javascript","C#", "C++", "TypeScript", "PHP");
+
+        ListView listView = new ListView();
+        listView.show(items);
+    }
+}*/
+
 import java.util.List;
 
 class ListView {

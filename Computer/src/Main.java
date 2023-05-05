@@ -1,3 +1,16 @@
+/*Crea un Builder para la siguiente clase Computer:
+
+Los campos HDD y RAM son obligatorios, y se deben pasar en el constructor del Builder.
+
+Los campos isGraphicsCardEnabled y isBluetoothEnabled son opcionales y se deben establecer con métodos setter del Builder
+
+Crea un constructor privado en la clase Computer para impedir que se instancien objetos de esta clase, si no es a través del Builder.
+
+Crea un programa principal que instancia un Computer usando el Builder.
+
+*/
+
+
 class Computer {
     //required
     String HDD;

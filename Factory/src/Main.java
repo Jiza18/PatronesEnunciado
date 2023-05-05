@@ -1,3 +1,22 @@
+/*Para facilitar su uso, se ha incluido un metodo factory en la clase Notification, que retorna un objeto de la clase correspondiente según el parámetro destination recibido:
+
+Si el parámetro destination contiene una @, se retorna un EmailNotification
+Si el parámetro destination empieza por http, se retorna un PushNotification
+En cualquier otro caso, se retorna un SMSNotification
+Las clases que implementan el método sendNotification(), por el momento, no es necesario que realicen la acción de enviar la notificación; simplemente escriben por pantalla un mensaje.
+
+A continuación se muestra un ejemplo de cómo se usaría la clase Notification:
+
+public class Main {
+    public static void main(String[] args) {
+
+        Notification.factory("gerard@benigaslo.com").sendNotification();
+        Notification.factory("http://benigaslo.com/gerard").sendNotification();
+        Notification.factory("+34 678 789 890").sendNotification();
+    }
+}
+*/
+
 abstract class Notification {
     String destination;
     abstract void sendNotification();

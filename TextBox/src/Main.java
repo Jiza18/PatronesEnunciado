@@ -1,4 +1,29 @@
+/*Añade un Builder a la siguiente clase TextBox.
 
+El método build() debe asegurar que:
+
+Los campos alto y ancho son siempre mayores que 0.
+
+El campo ancho siempre es mayor o igual a la longitud del campo texto.
+
+El campo alto es mayor o igual a 1 si el campo texto no está vacío
+
+El campo texto nunca debe ser null.
+
+class TextBox {
+    String texto;
+    int ancho, alto;
+
+    @Override
+    public String toString() {
+        return ancho + "x" + alto + "\n" +
+                "┏" + "━".repeat(ancho) + "┓\n" +
+                ("┃" + " ".repeat(ancho) + "┃\n").repeat((alto - 1) / 2) +
+                (alto > 0 ? "┃" + " ".repeat((ancho - texto.length() + 1) / 2) + texto + " ".repeat((ancho - texto.length()) / 2) + "┃\n" : "") +
+                ("┃" + " ".repeat(ancho) + "┃\n").repeat(alto / 2) +
+                "┗" + "━".repeat(ancho) + "┛\n";
+    }
+}*/
 class TextBox {
     String texto;
     int ancho, alto;
